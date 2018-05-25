@@ -1,6 +1,6 @@
 class Rooms
 
-  attr_accessor :price, :guest_list
+  attr_accessor :name, :price, :guest_list
   #  attr_reader :name
 
   def initialize(name, price)
@@ -21,5 +21,10 @@ class Rooms
   def remove_guest(guest)
     @guest_list.delete(guest)
   end
+
+  # def add_play_list(song)
+  #   @play_list.push(song)
+  #   return @play_list.length
+  # end
 
 end
