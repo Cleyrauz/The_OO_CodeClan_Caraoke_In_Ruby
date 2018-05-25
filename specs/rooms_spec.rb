@@ -13,6 +13,8 @@ class RoomsTest < MiniTest::Test
     @guest1 = Guest.new("Cleyra", 100)
     @guest2 = Guest.new("Jose", 20)
     @song1 = Songs.new("Imagine")
+    @song2 = Songs.new("Hey Jude")
+    @songs = [@song1, @song2]
   end
 
   def test_has_name
@@ -31,7 +33,8 @@ class RoomsTest < MiniTest::Test
     assert_equal(0, @room1.get_guest_count())
   end
 
-  def test_song_count
+  def test_get_song_count
+  assert_equal(0, @room1.get_song_count)
   end
 
 
