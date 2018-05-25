@@ -26,9 +26,9 @@ class Rooms
     return @songs.length
   end
 
-  # def add_play_list(song)
-  #   @play_list.push(song)
-  #   return @play_list.length
-  # end
+  def add_song(song)
+    @songs.push(song)
+    return @songs.length
+  end
 
 end
