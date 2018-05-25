@@ -11,8 +11,8 @@ class SongsTest < MiniTest::Test
     @song3 = Songs.new("La Macarena")
   end
 
-def test_song_has_name
-assert_equal("Hey Jude", @song1.name)
+def test_song_has_title
+assert_equal("Hey Jude", @song1.title)
 end
 
 end
