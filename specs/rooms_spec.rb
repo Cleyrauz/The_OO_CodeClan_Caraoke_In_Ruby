@@ -12,6 +12,7 @@ class RoomsTest < MiniTest::Test
     @room2 = Rooms.new("Cleyra's Dream Party", 8, 3)
     @guest1 = Guest.new("Cleyra", 100)
     @guest2 = Guest.new("Jose", 20)
+    @guest3 = Guest.new("Adri", 2)
     @song1 = Songs.new("Imagine")
     @song2 = Songs.new("Hey Jude")
   end
@@ -44,6 +45,15 @@ class RoomsTest < MiniTest::Test
 
   def test_capacity_room
     assert_equal(2, @room1.capacity_room)
+  end
+
+  def test_full_room_remove_guest
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.add_guest(@guest3)
+    assert_equal("Too full", @room1.check_if_too_full(@guest))
+    @room1.remove_guest(@guest1)
+    assert_equal(2, @room1.get_guest_count)
   end
 
 end

@@ -36,4 +36,12 @@ class Rooms
   return @capacity
   end
 
+  def check_if_too_full(guest)
+    if @guest_list.length < @capacity
+      add_guest
+    else
+      return "Too full"
+    end
+  end
+
 end
