@@ -1,13 +1,14 @@
 class Rooms
 
-  attr_accessor :name, :price, :songs
+  attr_accessor :name, :price, :capacity
   #  attr_reader :name
 
-  def initialize(name, price)
+  def initialize(name, price, capacity)
     @name = name
     @price = price
     @songs = []
     @guest_list = []
+    @capacity = capacity
   end
 
   def add_guest(guest)
@@ -29,6 +30,10 @@ class Rooms
   def add_song(song)
     @songs.push(song)
     return @songs.length
+  end
+
+  def capacity_room
+  return @capacity
   end
 
 end
