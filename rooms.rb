@@ -6,7 +6,7 @@ class Rooms
   def initialize(name, price, capacity)
     @name = name
     @price = price
-    @songs = []
+    @songs = ['Imagine', 'La Bamba', 'La vida loca']
     @guest_list = []
     @capacity = capacity
   end
@@ -44,5 +44,12 @@ class Rooms
     end
   end
 
+  def favourite_song_is_on_playlist(guest)
+    if @songs.include?(guest.favourite_song)
+      return "Whoo!"
+    else
+      return "Buuu"
+    end
+  end
 
 end

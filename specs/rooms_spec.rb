@@ -10,9 +10,9 @@ class RoomsTest < MiniTest::Test
   def setup
     @room1 = Rooms.new("CodeClan Karaoke", 5, 2)
     @room2 = Rooms.new("Cleyra's Dream Party", 8, 3)
-    @guest1 = Guest.new("Cleyra", 100)
-    @guest2 = Guest.new("Jose", 20)
-    @guest3 = Guest.new("Adri", 2)
+    @guest1 = Guest.new("Cleyra", 100, "Imagine")
+    @guest2 = Guest.new("Jose", 20, "Hey Jude")
+    @guest3 = Guest.new("Adri", 2, "La Bamba")
     @song1 = Songs.new("Imagine")
     @song2 = Songs.new("Hey Jude")
   end
@@ -34,13 +34,13 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_get_song_count
-  assert_equal(0, @room1.get_song_count)
+  assert_equal(3, @room1.get_song_count)
   end
 
   def test_add_songs_to_room
     @room1.add_song(@song1)
     @room1.add_song(@song2)
-    assert_equal(2, @room1.get_song_count)
+    assert_equal(5, @room1.get_song_count)
   end
 
   def test_capacity_room
@@ -69,6 +69,18 @@ class RoomsTest < MiniTest::Test
     assert_equal(95, @guest1.check_pocket_money)
   end
 
+  def test_guest_has_favourite_song
+    assert_equal("Imagine", @guest1.favourite_song)
+  end
 
+  def test_favourite_song_is_on_playlist
+    result = @room1.favourite_song_is_on_playlist(@guest1)
+    assert_equal("Whoo!", result)
+  end
+
+  def test_favourite_song_is__not_on_playlist
+    result = @room1.favourite_song_is_on_playlist(@guest2)
+    assert_equal("Buuu", result)
+  end
 
 end
