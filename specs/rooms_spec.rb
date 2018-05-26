@@ -4,17 +4,18 @@ require("minitest/rg")
 require_relative("../rooms")
 require_relative("../guest")
 require_relative("../songs")
-
+require_relative("../bar")
 class RoomsTest < MiniTest::Test
 
   def setup
-    @room1 = Rooms.new("CodeClan Karaoke", 5, 2)
-    @room2 = Rooms.new("Cleyra's Dream Party", 8, 3)
+    @room1 = Rooms.new("CodeClan Karaoke", 2)
+    @room2 = Rooms.new("Cleyra's Dream Party", 3)
     @guest1 = Guest.new("Cleyra", 100, "Imagine")
     @guest2 = Guest.new("Jose", 20, "Hey Jude")
     @guest3 = Guest.new("Adri", 2, "La Bamba")
     @song1 = Songs.new("Imagine")
     @song2 = Songs.new("Hey Jude")
+    @bar = Bar.new([@room1, @room2], 5)
   end
 
   def test_room_has_name
@@ -57,7 +58,7 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_room_has_a_price
-    assert_equal(5, @room1.price)
+    assert_equal(5, @bar.price)
   end
 
   def check_pocket_money
@@ -65,7 +66,7 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_remove_money
-    @guest1.remove_money(@room1.price)
+    @guest1.remove_money(@bar.price)
     assert_equal(95, @guest1.check_pocket_money)
   end
 
@@ -83,4 +84,11 @@ class RoomsTest < MiniTest::Test
     assert_equal("Buuu", result)
   end
 
-end
+  def test_bar_has_a_total_tap
+    assert_equal(0, @bar.total_tap)
+  end
+
+#   def add_money_tap_from_pocket_money_guest
+#   end
+#
+# end
