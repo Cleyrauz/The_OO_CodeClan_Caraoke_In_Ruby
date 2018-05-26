@@ -56,4 +56,19 @@ class RoomsTest < MiniTest::Test
     assert_equal(2, @room1.get_guest_count)
   end
 
+  def test_room_has_a_price
+    assert_equal(5, @room1.price)
+  end
+
+  def check_pocket_money
+    assert_equal(100, @guest1.check_pocket_money)
+  end
+
+  def test_remove_money
+    @guest1.remove_money(@room1.price)
+    assert_equal(95, @guest1.check_pocket_money)
+  end
+
+
+
 end
