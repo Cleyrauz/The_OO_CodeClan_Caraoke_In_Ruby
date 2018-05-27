@@ -8,9 +8,9 @@ class Bar
     @total_tap = 0
   end
 
-  def total_tap
+  def add_money(price)
+    @total_tap += price
     return @total_tap
   end
-
 
 end

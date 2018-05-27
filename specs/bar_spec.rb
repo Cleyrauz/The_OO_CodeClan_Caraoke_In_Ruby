@@ -12,11 +12,4 @@ class BarTest < MiniTest::Test
     @bar = Bar.new([@room1, @room2], 5)
   end
 
-  def test_bar_has_money
-   assert_equal(0, @bar.total_tap)
- end
-
-  # def add_money_tap_from_pocket_money
-  # end
-
 end
