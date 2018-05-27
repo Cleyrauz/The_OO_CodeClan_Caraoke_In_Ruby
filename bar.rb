@@ -8,5 +8,9 @@ class Bar
     @total_tap = 0
   end
 
+  def total_tap
+    return @total_tap
+  end
+
 
 end

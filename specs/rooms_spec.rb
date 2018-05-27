@@ -88,7 +88,4 @@ class RoomsTest < MiniTest::Test
     assert_equal(0, @bar.total_tap)
   end
 
-#   def add_money_tap_from_pocket_money_guest
-#   end
-#
-# end
+end
