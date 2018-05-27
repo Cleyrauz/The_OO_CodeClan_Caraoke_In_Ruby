@@ -13,4 +13,15 @@ class Bar
     return @total_tap
   end
 
+  def get_price(guest)
+    famous_guest_names_list = ['Riki Martin', 'Dua Lipa', 'Bruno Mars']
+    if famous_guest_names_list.include?(guest.name)
+      return 0;
+    else
+      return @price;
+    end
+  end
+
+
+
 end

@@ -16,4 +16,11 @@ attr_accessor :name, :pocket_money, :favourite_song
     end
   end
 
+  # def entry_free_famous_guest(price)
+  #   if @name ==
+  #     price = 0
+  #     return "Happy Birthday! Your entry is free"
+  #   end
+  # end
+
 end

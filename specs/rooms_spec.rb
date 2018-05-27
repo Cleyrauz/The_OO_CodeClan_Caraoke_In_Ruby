@@ -13,6 +13,7 @@ class RoomsTest < MiniTest::Test
     @guest1 = Guest.new("Cleyra", 100, "Imagine")
     @guest2 = Guest.new("Jose", 20, "Hey Jude")
     @guest3 = Guest.new("Adri", 2, "La Bamba")
+    @famous_guest = Guest.new("Riki Martin", 50, "Living la vida loca")
     @song1 = Songs.new("Imagine")
     @song2 = Songs.new("Hey Jude")
     @bar = Bar.new([@room1, @room2], 5)
@@ -58,15 +59,15 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_room_has_a_price
-    assert_equal(5, @bar.price)
+    assert_equal(5, @bar.get_price(@guest1))
   end
 
-  def check_pocket_money
-    assert_equal(100, @guest1.check_pocket_money)
+  def test_check_pocket_money
+    assert_equal(100, @guest1.pocket_money)
   end
 
   def test_remove_money
-    money = @guest1.remove_money(@bar.price)
+    money = @guest1.remove_money(@bar.get_price(@guest1))
     assert_equal(95, @guest1.pocket_money)
     assert_equal(5, money)
   end
@@ -102,9 +103,14 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_add_money_tap_from_pocket_money
-    money = @guest1.remove_money(@bar.price)
+    money = @guest1.remove_money(@bar.get_price(@guest1))
     @bar.add_money(money)
-    assert_equal(5, @bar.total_tap)
+    assert_equal(money, @bar.total_tap)
   end
+
+  def test_entry_free_famous_guest
+    assert_equal(0, @bar.get_price(@famous_guest))
+  end
+
 
 end
