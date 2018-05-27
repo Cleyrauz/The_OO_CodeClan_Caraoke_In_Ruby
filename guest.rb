@@ -15,8 +15,17 @@ attr_accessor :name, :pocket_money, :favourite_song
     return @pocket_money -= price
   end
 
+
   def favourite_song
     return @favourite_song
   end
+
+  def guest_effort_room(price)
+    if @pocket_money >= price
+      return "Welcome!"
+    else
+      return "Please, go to the IT machine"
+  end
+end
 
 end

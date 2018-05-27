@@ -93,15 +93,18 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_guest_effort_room
-    @guest1.remove_money(5)
-    assert_equal(95, @guest1.check_pocket_money)
+    assert_equal("Welcome!", @guest1.guest_effort_room(5))
+  end
+
+  def test_guest__can_not_effort_room
+    assert_equal("Please, go to the IT machine", @guest3.guest_effort_room(5))
   end
 
   # def test_add_money_tap_from_pocket_money
-  #   @guest1.remove_money(@bar.price)
+  #   money = @guest1.remove_money(@bar.price)
   #   @guest1.check_pocket_money
-  #   @bar.add_money(5)
-  #   assert_equal(5, @bar.add_money)
+  #   @bar.add_money(money)
+  #   assert_equal(@bar.price, @bar.total_tap)
   # end
 
 end
